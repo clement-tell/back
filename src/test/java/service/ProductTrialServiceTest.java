@@ -97,6 +97,15 @@ class ProductTrialServiceTest {
         verify(productRepository, times(1)).findFirstById(anyLong());
     }
 
+    @Test
+    void testDeleteProduct() {
+        ProductEntity existingProduct = new ProductEntity();
+        existingProduct.setId(56L);
+        when(productRepository.findFirstById(anyLong())).thenReturn(existingProduct);
+
+        assertDoesNotThrow(() -> productService.deleteProduct(1L));
+    }
+
     private ProductEntity getExistingProduct() {
         return new ProductEntity(31L, "uah5op98d", "Ball", "This is a ball", 12F, "Sport", 14, 15, "ball.png", "FOE-O24-0Y4", "INSTOCK", Date.from(LocalDate.of(2000, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()), null, 4);
     }
