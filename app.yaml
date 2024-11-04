@@ -1,7 +1,7 @@
 service: default
 runtime: java21
 env: standard
-instance_class: B2
 manual_scaling:
-  instances: 1
+  instances: 3
+instance_class: B2
 env_variables:
