@@ -5,8 +5,6 @@ manual_scaling:
   instances: 2
 instance_class: B2
 handlers:
-  - url: /.*
-    script: auto
   - url: /_ah/start
     script: auto
 env_variables:
